@@ -1,4 +1,10 @@
-import React, { useContext, useState, useRef, useEffect } from "react";
+import React, {
+  useContext,
+  useState,
+  useRef,
+  useEffect,
+  useCallback,
+} from "react";
 import Navbar from "./Navbar";
 import { UserContext } from "../Usercontext";
 import { app } from "../firebase";
@@ -19,7 +25,7 @@ const UpdateProfile = () => {
   const [updateSuccess, setUpdateSuccess] = useState(false);
   const [updating, setUpdating] = useState(false);
 
-  const handleFileUpload = (file) => {
+  const handleFileUpload = useCallback((file) => {
     const storage = getStorage(app);
     const fileName = new Date().getTime() + file.name;
     const storageRef = ref(storage, fileName);
@@ -37,17 +43,20 @@ const UpdateProfile = () => {
       },
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) =>
-          setFormData({ ...formData, avatar: downloadURL })
+          setFormData((prevFormData) => ({
+            ...prevFormData,
+            avatar: downloadURL,
+          }))
         );
       }
     );
-  };
+  }, []);
 
   useEffect(() => {
     if (file) {
       handleFileUpload(file);
     }
-  }, [file]);
+  }, [file, handleFileUpload]);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
