@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import { UserContext } from "../Usercontext";
 import axios from "axios";
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState } from "react";
 
 export default function Navbar() {
   const { user, setUser } = useContext(UserContext);
-  const [redirect, setRedirect] = useState(null);
+  const [setRedirect] = useState(null);
 
   const handleLogout = async () => {
     try {

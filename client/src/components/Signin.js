@@ -33,7 +33,7 @@ function Signin() {
     }
 
     try {
-      const response = await axios.post("http://localhost/api/register", {
+      await axios.post("http://localhost/api/register", {
         name,
         email,
         password,

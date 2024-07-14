@@ -1,13 +1,13 @@
 import React, { useState, useContext } from "react";
 import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
-import { useNavigate, Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { app } from "../firebase";
 import { UserContext } from "../Usercontext";
 
 export default function Google() {
   const navigate = useNavigate();
-  const { user, setUser } = useContext(UserContext);
-  const [redirect, setRedirect] = useState(false);
+  const {  setUser } = useContext(UserContext);
+  const [ setRedirect] = useState(false);
   const handleGoogleClick = async () => {
     try {
       const provider = new GoogleAuthProvider();

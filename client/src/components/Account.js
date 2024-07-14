@@ -1,5 +1,5 @@
-import React, { useContext, useState, useEffect } from "react";
-import { Link, Navigate, useParams } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, Navigate } from "react-router-dom";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
 import { UserContext } from "../Usercontext";
@@ -18,7 +18,7 @@ export default function Account() {
     );
   };
 
-  const { user, ready, setUser } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
   const [generatedItinerary, setGeneratedItinerary] = useState("");
   const [formData, setFormData] = useState({
     destination: "",
@@ -50,20 +50,6 @@ export default function Account() {
     subpage = "profile";
   }
 
-  const logout = async () => {
-    try {
-      await axios.post(
-        "http://localhost/logout",
-        {},
-        { withCredentials: true }
-      );
-      setUser(null);
-      setRedirect("/");
-    } catch (error) {
-      console.error("Logout failed:", error);
-    }
-  };
-
   if (redirect) {
     return <Navigate to={redirect} />;
   }
@@ -72,28 +58,6 @@ export default function Account() {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
     setMapVisible(false);
-  };
-
-  const fetchDestinationImages = async (query) => {
-    const unsplashAccessKey = "sOColsVZHWsOiJTZ7ks8RPcTJ_MK5C8ijDSRVv5-16A";
-    const apiUrl = `https://api.unsplash.com/search/photos?page=1&query=${query}`;
-
-    try {
-      setLoadingImages(true);
-      const response = await axios.get(apiUrl, {
-        headers: {
-          Authorization: `Client-ID ${unsplashAccessKey}`,
-        },
-      });
-
-      if (response.data && response.data.results) {
-        setDestinationImages(response.data.results);
-      }
-    } catch (error) {
-      console.error("Error fetching images:", error);
-    } finally {
-      setLoadingImages(false);
-    }
   };
 
   const handleSubmit = async (e) => {
