@@ -33,12 +33,12 @@ export default function Account() {
 
   formData.userid = user._id;
 
-  const [redirect, setRedirect] = useState(null);
+  const [redirect] = useState(null);
   const { pathname } = useLocation();
   const [mapLatitude, setMapLatitude] = useState(null);
   const [mapLongitude, setMapLongitude] = useState(null);
   const [mapVisible, setMapVisible] = useState(false);
-  const [destinationImages, setDestinationImages] = useState([]);
+  const [destinationImages] = useState([]);
   const [loadingImages, setLoadingImages] = useState(false);
 
   const [loadingItinerary, setLoadingItinerary] = useState(false);
