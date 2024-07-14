@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link, Navigate } from "react-router-dom";
+import {  Navigate } from "react-router-dom";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
 import { UserContext } from "../Usercontext";
@@ -18,7 +18,7 @@ export default function Account() {
     );
   };
 
-  const { user, setUser } = useContext(UserContext);
+  const { user } = useContext(UserContext);
   const [generatedItinerary, setGeneratedItinerary] = useState("");
   const [formData, setFormData] = useState({
     destination: "",
