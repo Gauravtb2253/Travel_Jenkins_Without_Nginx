@@ -41,7 +41,6 @@ router.post("/register", async (req, res) => {
 });
 
 router.post("/login", async (req, res) => {
-  console.log("login of "+PORT);
   const { email, password } = req.body;
   try {
     const userDoc = await User.findOne({ email });

@@ -1,7 +1,7 @@
 import './App.css';
 import Login from './components/Login';
 import Signin from './components/Signin';
-import { BrowserRouter as Route, Routes } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Home from './components/Home';
 import { UserContextProvider } from './Usercontext';
 import Account from './components/Account';
@@ -13,7 +13,7 @@ import ShowPreviousItineraries from './components/ShowPreviousItineraries';
 
 function App() {
   return (
-    <div>
+    <>
       <UserContextProvider>
           <Routes>
             <Route exact path="/" element={<Home />} />
@@ -28,7 +28,7 @@ function App() {
             </Route>
           </Routes>
       </UserContextProvider>
-    </div>
+    </>
   );
 }
 
