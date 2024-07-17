@@ -1,13 +1,12 @@
 const express = require("express");
 const router = express.Router();
 const Itinerary = require("../Models/Itinerary");
-
+require("dotenv").config();
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
-const genAI = new GoogleGenerativeAI("AIzaSyDBKaJCznbPCiiP3agJlxgTdSYLZ5BIU9U");
+const genAI = new GoogleGenerativeAI(`${process.env.GEMINI_API}`);
 
 router.post("/generate-itinerary", async (req, res) => {
-  const formData = req.body;
   const {
     destination,
     source,
