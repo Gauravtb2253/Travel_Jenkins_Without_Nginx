@@ -47,7 +47,7 @@ mongoose
 app.use("/api/", authRouter);
 app.use("/api/", itineraryRouter);
 
-const PORT = process.env.PORT || 80;
+const PORT = 5000;
 
 app.listen(PORT, () => {
   console.log("server is starting on "+PORT);
