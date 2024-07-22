@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 const corsOptions = {
-  origin: "http://localhost",
+  origin: `${process.env.BACKEND_URL}`,
   credentials: true,
   methods: "GET, POST, OPTIONS,PUT,DELETE",
   allowedHeaders: ["Content-Type", "X-Auth-Token", "Origin", "Authorization"],
