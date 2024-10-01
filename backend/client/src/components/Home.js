@@ -286,16 +286,27 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       <footer className="bg-dark text-white p-4">
         <div className="container">
           <div className="row">
+            {/* Company Information */}
             <div className="col-md-6">
-              <h5>About Us</h5>
-              <p>© Group 15 - All rights reserved</p>
+              <h5>Our Mission</h5>
+              <p>
+                At Group 15, we aim to revolutionize digital experiences with
+                cutting-edge technology and innovative solutions. We strive to
+                provide our users with seamless and impactful tools that make a
+                difference.
+              </p>
+              <p>© 2024 Group 15 - Empowering the Future</p>
             </div>
+
+            {/* Contact & Social Links */}
             <div className="col-md-6">
-              <h5>Connect with Us</h5>
+              <h5>Follow Us</h5>
+              <p>
+                Stay updated with our latest news and products on social media:
+              </p>
               <a
                 href="https://www.facebook.com"
                 target="_blank"
@@ -306,7 +317,7 @@ export default function Home() {
                   height="35"
                   className="mx-1"
                   width="35"
-                  alt=""
+                  alt="Facebook"
                 />
               </a>
               <a
@@ -319,7 +330,7 @@ export default function Home() {
                   height="35"
                   className="mx-1"
                   width="35"
-                  alt=""
+                  alt="Instagram"
                 />
               </a>
               <a
@@ -332,7 +343,7 @@ export default function Home() {
                   className="mx-1"
                   height="35"
                   width="35"
-                  alt=""
+                  alt="Twitter"
                 />
               </a>
             </div>
